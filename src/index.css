@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-red via-neon-crimson to-neon-darkred;
+  }
+
+  .text-gradient-gold {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #FFD700, #D4AF37, #B8960F);
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(
+      90deg,
+      #B8960F 0%,
+      #D4AF37 25%,
+      #FFD700 50%,
+      #D4AF37 75%,
+      #B8960F 100%
+    );
+    background-size: 200% auto;
+  }
+
+  .glow-border {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4), 0 0 30px rgba(220, 20, 60, 0.3);
+  }
+
+  .glow-border-gold {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5), 0 0 30px rgba(255, 215, 0, 0.3);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Neon flicker effect */
+  .neon-flicker {
+    animation: neonFlicker 3s infinite alternate;
+    text-shadow: 
+      0 0 10px rgba(255, 0, 0, 0.8),
+      0 0 20px rgba(255, 0, 0, 0.6),
+      0 0 30px rgba(255, 0, 0, 0.4),
+      0 0 40px rgba(220, 20, 60, 0.3);
+  }
+
+  @keyframes neonFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      text-shadow: 
+        0 0 10px rgba(255, 0, 0, 0.8),
+        0 0 20px rgba(255, 0, 0, 0.6),
+        0 0 30px rgba(255, 0, 0, 0.4),
+        0 0 40px rgba(220, 20, 60, 0.3);
+    }
+    20%, 24%, 55% {
+      text-shadow: none;
+    }
+  }
+
+  /* Bullet animation for lists */
+  @keyframes bulletShot {
+    0% {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .bullet-item {
+    animation: bulletShot 0.3s ease-out forwards;
+    opacity: 0;
+  }
+}

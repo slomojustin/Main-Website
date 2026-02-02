@@ -510,13 +510,13 @@ const Projects = ({ darkMode }) => {
 
             {/* Modal */}
             <motion.div
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
+              className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
               <motion.div
-                className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl pointer-events-auto ${
+                className={`relative w-full max-w-[95vw] sm:max-w-xl md:max-w-3xl lg:max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl sm:rounded-2xl pointer-events-auto ${
                   darkMode ? 'glass-dark' : 'bg-white'
                 }`}
                 initial={{ scale: 0.9, y: 50 }}
@@ -527,15 +527,15 @@ const Projects = ({ darkMode }) => {
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className={`absolute top-4 right-4 z-10 p-2 rounded-full transition-colors ${
+                  className={`absolute top-2 right-2 sm:top-4 sm:right-4 z-10 p-1.5 sm:p-2 rounded-full transition-colors ${
                     darkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-gray-200 hover:bg-gray-300'
                   }`}
                 >
-                  <X size={24} />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
 
                 {/* Project Image */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-40 sm:h-52 md:h-64 overflow-hidden">
                   <img
                     src={selectedProject.image}
                     alt={selectedProject.title}
@@ -545,19 +545,19 @@ const Projects = ({ darkMode }) => {
                   
                   {/* Featured Badge */}
                   {selectedProject.featured && (
-                    <div className="absolute top-4 left-4 bg-gradient-to-r from-[#D4AF37] via-[#FFD700] to-[#D4AF37] px-3 py-1 rounded font-mono text-xs tracking-wider text-black font-bold shadow-lg">
+                    <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-gradient-to-r from-[#D4AF37] via-[#FFD700] to-[#D4AF37] px-2 py-0.5 sm:px-3 sm:py-1 rounded font-mono text-[10px] sm:text-xs tracking-wider text-black font-bold shadow-lg">
                       ★ FEATURED
                     </div>
                   )}
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
+                <div className="p-4 sm:p-6 md:p-8">
                   {/* Header */}
-                  <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-start justify-between mb-3 sm:mb-6">
                     <div>
-                      <h2 className="text-3xl font-bold mb-2">{selectedProject.title}</h2>
-                      <span className={`inline-block text-sm px-3 py-1 rounded-full ${
+                      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2">{selectedProject.title}</h2>
+                      <span className={`inline-block text-xs sm:text-sm px-2 py-0.5 sm:px-3 sm:py-1 rounded-full ${
                         darkMode ? 'bg-white/10' : 'bg-gray-100'
                       }`}>
                         {selectedProject.category}
@@ -566,25 +566,25 @@ const Projects = ({ darkMode }) => {
                   </div>
 
                   {/* Full Description */}
-                  <div className="mb-6">
-                    <h3 className="text-xl font-bold mb-3">About This Project</h3>
-                    <div className={`text-base leading-relaxed ${
+                  <div className="mb-4 sm:mb-6">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">About This Project</h3>
+                    <div className={`text-sm sm:text-base leading-relaxed ${
                       darkMode ? 'text-gray-300' : 'text-gray-700'
                     }`}>
                       {(selectedProject.fullDescription || selectedProject.description).split('•').filter(item => item.trim()).map((bullet, index) => (
-                        <p key={index} className="mb-3" dangerouslySetInnerHTML={{ __html: `• ${bullet.trim()}` }} />
+                        <p key={index} className="mb-2 sm:mb-3" dangerouslySetInnerHTML={{ __html: `• ${bullet.trim()}` }} />
                       ))}
                     </div>
                   </div>
 
                   {/* Tech Stack */}
-                  <div className="mb-6">
-                    <h3 className="text-xl font-bold mb-3">Tech Stack</h3>
-                    <div className="flex flex-wrap gap-3">
+                  <div className="mb-4 sm:mb-6">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Tech Stack</h3>
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
                       {selectedProject.tech.map((tech) => (
                         <span
                           key={tech}
-                          className={`text-sm px-4 py-2 rounded-lg font-mono uppercase tracking-wider border ${
+                          className={`text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded sm:rounded-lg font-mono uppercase tracking-wider border ${
                             darkMode
                               ? 'bg-neon-red/10 text-neon-red border-neon-red/30'
                               : 'bg-red-50 text-red-700 border-red-200'
@@ -597,13 +597,13 @@ const Projects = ({ darkMode }) => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-4 justify-center">
+                  <div className="flex gap-2 sm:gap-4 justify-center">
                     {selectedProject.github !== '#' && (
                       <motion.a
                         href={selectedProject.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all justify-center ${
+                        className={`flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold transition-all justify-center text-sm sm:text-base ${
                           selectedProject.demo === '#' ? 'w-full max-w-md' : 'flex-1'
                         } ${
                           darkMode
@@ -613,7 +613,7 @@ const Projects = ({ darkMode }) => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        <Github size={20} />
+                        <Github className="w-4 h-4 sm:w-5 sm:h-5" />
                         View Code
                       </motion.a>
                     )}
@@ -623,11 +623,11 @@ const Projects = ({ darkMode }) => {
                         href={selectedProject.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-neon-red to-neon-crimson hover:from-[#D4AF37] hover:to-[#B8960F] text-white hover:text-black font-semibold flex-1 justify-center transition-all"
+                        className="flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-gradient-to-r from-neon-red to-neon-crimson hover:from-[#D4AF37] hover:to-[#B8960F] text-white hover:text-black font-semibold flex-1 justify-center transition-all text-sm sm:text-base"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        <ExternalLink size={20} />
+                        <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
                         Live Demo
                       </motion.a>
                     )}

@@ -24,6 +24,21 @@ const Header = ({ darkMode, toggleTheme }) => {
     { name: 'Resume', href: '/Resume.pdf', external: true },
   ]
 
+  const handleNavClick = (e, href, external) => {
+    if (external) return // Let external links work normally
+    
+    e.preventDefault()
+    const targetId = href.replace('#', '')
+    const targetElement = document.getElementById(targetId)
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
+
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -42,6 +57,7 @@ const Header = ({ darkMode, toggleTheme }) => {
           {/* Logo */}
           <motion.a
             href="#home"
+            onClick={(e) => handleNavClick(e, '#home', false)}
             className="text-2xl font-bold text-gradient"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -57,6 +73,7 @@ const Header = ({ darkMode, toggleTheme }) => {
                 href={item.href}
                 target={item.external ? '_blank' : undefined}
                 rel={item.external ? 'noopener noreferrer' : undefined}
+                onClick={(e) => handleNavClick(e, item.href, item.external)}
                 className={`text-sm font-medium transition-colors hover:text-neon-red ${
                   darkMode ? 'text-gray-300' : 'text-gray-700'
                 }`}
@@ -142,12 +159,15 @@ const Header = ({ darkMode, toggleTheme }) => {
                 href={item.href}
                 target={item.external ? '_blank' : undefined}
                 rel={item.external ? 'noopener noreferrer' : undefined}
+                onClick={(e) => {
+                  handleNavClick(e, item.href, item.external)
+                  setMobileMenuOpen(false)
+                }}
                 className={`block px-4 py-3 text-sm font-medium transition-colors ${
                   darkMode 
                     ? 'text-gray-300 hover:text-neon-red hover:bg-white/5' 
                     : 'text-gray-700 hover:text-neon-red hover:bg-gray-50'
                 }`}
-                onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </a>

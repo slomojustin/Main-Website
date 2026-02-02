@@ -155,7 +155,7 @@ const About = ({ darkMode }) => {
                     variants={itemVariants}
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`px-2 py-1 rounded font-mono text-sm font-medium cursor-pointer bullet-item ${
+                    className={`px-2 py-1 rounded font-mono text-sm font-medium bullet-item ${
                       darkMode 
                         ? 'bg-neon-red/20 text-neon-red border border-neon-red/30 hover:bg-neon-red/30' 
                         : 'bg-red-100 text-red-700 border border-red-200 hover:bg-red-200'
@@ -219,7 +219,7 @@ const About = ({ darkMode }) => {
             transition={{ delay: 0.8 }}
           >
             {[
-              { label: 'Projects', value: '10', coins: 10 },
+              { label: 'Projects', value: '11', coins: 11 },
               { label: 'Technologies', value: '14', coins: 14 },
               { label: 'Coffees', value: '∞', coins: 100 }
             ].map((stat, index) => (

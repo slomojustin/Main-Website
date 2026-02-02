@@ -24,7 +24,7 @@ export const AudioProvider = ({ children }) => {
       const audio = new Audio()
       audio.src = '/audio/background.mp3'
       audio.loop = true
-      audio.volume = 0.15
+      audio.volume = 0.3
       
       audio.addEventListener('canplaythrough', () => {
         backgroundMusic.current = audio

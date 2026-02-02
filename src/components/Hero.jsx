@@ -152,7 +152,7 @@ function Laptop({ mousePosition, selectedCode }) {
 
           {/* Typing Text on Screen */}
           <TypingText 
-            position={[0.3, -0.5, 0.062]}
+            position={[0.7, -0.5, 0.062]}
             codeSnippet={selectedCode}
           />
 

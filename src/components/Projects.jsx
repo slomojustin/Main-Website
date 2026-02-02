@@ -13,17 +13,23 @@ const Projects = ({ darkMode }) => {
   const { playSound } = useAudio()
   const [activeFilter, setActiveFilter] = useState('Featured')
   const [selectedProject, setSelectedProject] = useState(null)
+  const [hoveredCard, setHoveredCard] = useState(null)
+  const [hoveringButton, setHoveringButton] = useState(false)
 
   const projects = [
     {
       id: 1,
       title: '3-Stage Pipelined RISC-V CPU',
       category: 'Hardware',
-      description: 'Fully functional 32-bit RISC-V CPU (RV32I + CSR) on PYNQ-Z1 FPGA with UART interface. Achieved 100 MHz timing with pipeline balancing and critical-path optimization.',
-      fullDescription: 'Designed and implemented a fully functional 3-stage pipelined 32-bit RISC-V CPU (RV32I + CSR) on the PYNQ-Z1 FPGA, featuring UART interface for communication. Achieved 100 MHz timing through careful pipeline balancing, hazard detection, register file design, and critical-path optimization. Implemented Verilog modules for ALU, register file, hazard detection, and synchronous RAM, ensuring correct instruction execution and data forwarding.',
+      description: '32-bit RISC-V CPU on PYNQ-Z1 FPGA achieving 100 MHz timing with pipeline balancing and critical-path optimization.',
+      fullDescription: `• Designed and implemented a fully functional 3-stage pipelined 32-bit RISC-V CPU (RV32I + CSR) on the PYNQ-Z1 FPGA, featuring UART interface for communication.
+
+• Achieved 100 MHz timing through careful pipeline balancing, hazard detection, register file design, and critical-path optimization.
+
+• Implemented Verilog modules for ALU, register file, hazard detection, and synchronous RAM, ensuring correct instruction execution and data forwarding.`,
       tech: ['Verilog', 'FPGA', 'Digital Logic'],
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
-      github: '#',
+      image: '/fpga_image.webp',
+      github: 'https://github.com/slomojustin/FPGA-Project',
       demo: '#',
       icon: Server,
       featured: true
@@ -32,36 +38,50 @@ const Projects = ({ darkMode }) => {
       id: 2,
       title: 'Voice-Controlled Car',
       category: 'Hardware',
-      description: 'Microcontroller-driven vehicle using analog circuits, audio amplification, and PCA-based ML for voice command classification with closed-loop motor control.',
-      fullDescription: 'Built a microcontroller-driven vehicle that responds to voice commands using analog circuits for audio amplification and PCA-based machine learning for voice classification. Implemented closed-loop motor control for precise movement and real-time response to user commands. Designed custom PCB for audio processing and motor driver circuits.',
+      description: 'Microcontroller vehicle using analog circuits and PCA-based ML for voice command classification with closed-loop motor control.',
+      fullDescription: `• Built a microcontroller-driven vehicle that responds to voice commands using analog circuits for audio amplification and PCA-based machine learning for voice classification.
+
+• Implemented closed-loop motor control for precise movement and real-time response to user commands.
+
+• Designed custom PCB for audio processing and motor driver circuits.`,
       tech: ['Arduino', 'C++', 'PCA/ML', 'Circuits'],
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+      image: '/robot_car.jpg',
       github: '#',
       demo: '#',
       icon: Code2,
-      featured: true
+      featured: false
     },
     {
       id: 3,
       title: 'Secure File-Sharing System',
       category: 'Security',
       description: 'Encrypted file-sharing platform with authentication, storage, and revocation using AES-GCM, RSA, and HMAC for multi-user collaboration on encrypted files.',
-      fullDescription: 'Designed and implemented an encrypted multi-user file-sharing service with robust authentication, secure storage, and revocation capabilities. Utilized AES-GCM for file encryption, RSA for key exchange, and HMAC for integrity verification. Translated complex cryptographic workflows into intuitive explanations that mirrored real-world customer-facing architectural discussions, ensuring both technical accuracy and accessibility.',
+      fullDescription: `• Designed and implemented an encrypted multi-user file-sharing service with robust authentication, secure storage, and revocation capabilities.
+
+• Utilized AES-GCM for file encryption, RSA for key exchange, and HMAC for integrity verification to ensure end-to-end security.
+
+• Translated complex cryptographic workflows into intuitive explanations that mirrored real-world customer-facing architectural discussions, ensuring both technical accuracy and accessibility.`,
       tech: ['Go', 'Cryptography', 'Systems'],
-      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop',
-      github: '#',
+      image: '/file_sharing.png',
+      github: 'https://github.com/slomojustin/Secure-File-Sharing-Project',
       demo: '#',
       icon: Database,
-      featured: false
+      featured: true
     },
     {
       id: 4,
       title: 'UnicornBox Vulnerability Hunt',
       category: 'Security',
       description: 'Exploited 8 vulnerabilities (SQL injection, CSRF, XSS, path traversal) in mock web service, demonstrating full account compromise and proposing security mitigations.',
-      fullDescription: 'Discovered and exploited eight critical security vulnerabilities including SQL injection, CSRF, session forgery, path traversal, XSS, and AppSec flaws in a mock web service. Produced clear, written analyses and mitigation recommendations that demonstrated the ability to convey technical risks to stakeholders of varying expertise. Presented findings in a structured report format, mirroring customer enablement and solution validation workflows.',
+      fullDescription: `• Discovered and exploited eight critical security vulnerabilities including SQL injection, CSRF, session forgery, path traversal, XSS, and AppSec flaws in a mock web service.
+
+• Produced clear, written analyses and mitigation recommendations that demonstrated the ability to convey technical risks to stakeholders of varying expertise.
+
+• Presented findings in a structured report format, mirroring customer enablement and solution validation workflows.
+
+• <span style="color: #FFFFFF; background-color: rgba(212, 175, 55, 0.15); padding: 4px 8px; border-radius: 4px; font-weight: 500; border-left: 3px solid #D4AF37;">Note: GitHub repository unavailable as this was a university course project with academic integrity policies.</span>`,
       tech: ['Web Security', 'SQL Injection', 'XSS'],
-      image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=600&fit=crop',
+      image: '/unicorn.png',
       github: '#',
       demo: '#',
       icon: Server,
@@ -72,9 +92,13 @@ const Projects = ({ darkMode }) => {
       title: 'Transport-Layer Protocol (TCP)',
       category: 'Networks',
       description: 'TCP-like protocol with 3-way handshake, reliable in-order delivery, sliding-window flow control, and RTT-based retransmission timeout.',
-      fullDescription: 'Implemented core TCP features including 3-way handshake, reliable in-order delivery, sliding-window flow control, and dynamic RTT-based retransmission timeout. Analyzed protocol performance under packet loss scenarios, quantifying throughput degradation and recovery characteristics. Created user-friendly documentation describing output and common failure modes, mirroring the troubleshooting guides used in customer support and pre-sales engineering workflows.',
+      fullDescription: `• Implemented core TCP features including 3-way handshake, reliable in-order delivery, sliding-window flow control, and dynamic RTT-based retransmission timeout.
+
+• Analyzed protocol performance under packet loss scenarios, quantifying throughput degradation and recovery characteristics.
+
+• Created user-friendly documentation describing output and common failure modes, mirroring the troubleshooting guides used in customer support and pre-sales engineering workflows.`,
       tech: ['Python', 'Networking', 'TCP/IP'],
-      image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=600&fit=crop',
+      image: 'TCP.png',
       github: '#',
       demo: '#',
       icon: Network,
@@ -85,7 +109,11 @@ const Projects = ({ darkMode }) => {
       title: 'Dynamic Distance-Vector Router',
       category: 'Networks',
       description: 'RIP-style distance-vector router with split horizon, poison reverse, triggered updates, and route expiration for loop prevention and fast convergence.',
-      fullDescription: 'Built a RIP-style distance-vector router implementing split horizon, poison reverse, triggered updates, and route expiration to prevent routing loops and ensure fast convergence. Implemented robust error handling for dropped, duplicated, and malformed packets to map multi-hop network paths reliably. Created clear documentation and common failure modes, closely mirroring the structured troubleshooting guides used in customer support and pre-sales engineering workflows.',
+      fullDescription: `• Built a RIP-style distance-vector router implementing split horizon, poison reverse, triggered updates, and route expiration to prevent routing loops and ensure fast convergence.
+
+• Implemented robust error handling for dropped, duplicated, and malformed packets to map multi-hop network paths reliably.
+
+• Created clear documentation and common failure modes, closely mirroring the structured troubleshooting guides used in customer support and pre-sales engineering workflows.`,
       tech: ['Python', 'Networking', 'Algorithms'],
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop',
       github: '#',
@@ -110,6 +138,42 @@ const Projects = ({ darkMode }) => {
       icon: Database,
       featured: false
     },
+    {
+      id: 8,
+      title: 'Remote-Controlled Door Lock',
+      category: 'Hardware',
+      description: 'IoT door lock system using Arduino and ESP8266 with web interface for remote control of physical sliding lock mechanism via HTTP requests.',
+      fullDescription: `• Built an IoT door lock system using Arduino and ESP8266 WiFi module with a web interface that sends HTTP requests to remotely control a physical sliding lock mechanism.
+
+• Developed a RESTful web server on ESP8266 NodeMCU that processes lock/unlock commands and communicates with Arduino to drive an L298N motor controller and linear actuator.
+
+• Created a full-stack solution combining an HTML/JavaScript frontend with embedded C++ code to wirelessly translate button clicks into motor control signals for the door lock hardware.`,
+      tech: ['Arduino', 'ESP8266', 'HTML/JS', 'IoT'],
+      image: '/Door Lock Actuator.jpg',
+      github: 'https://github.com/slomojustin/Remote-Control-Doorlock',
+      demo: '#',
+      icon: Server,
+      featured: true
+    },
+    {
+      id: 9,
+      title: 'Memory Safety Vulnerability Exploitation',
+      category: 'Security',
+      description: 'Exploited memory safety vulnerabilities in C programs including buffer overflows, format string attacks, and return-oriented programming (ROP).',
+      fullDescription: `• Exploited seven memory safety vulnerabilities in vulnerable C programs using techniques including buffer overflow attacks, return-to-libc, and format string vulnerabilities.
+
+• Crafted shellcode and ROP chains to bypass security mechanisms like stack canaries and ASLR, achieving arbitrary code execution on target systems.
+
+• Analyzed x86-64 assembly code and GDB debugging to identify vulnerability points and construct precise exploits for decommissioned satellite control systems.
+
+• <span style="color: #FFFFFF; background-color: rgba(212, 175, 55, 0.15); padding: 4px 8px; border-radius: 4px; font-weight: 500; border-left: 3px solid #D4AF37;">Note: GitHub repository unavailable as this was a university course project with academic integrity policies.</span>`,
+      tech: ['C', 'Assembly', 'GDB', 'Exploitation'],
+      image: 'memory_safety.png',
+      github: '#',
+      demo: '#',
+      icon: Server,
+      featured: false
+    },
   ]
 
   const filters = ['Featured', 'Hardware', 'Security', 'Networks', 'All']
@@ -129,7 +193,7 @@ const Projects = ({ darkMode }) => {
   return (
     <section 
       id="projects" 
-      className="py-20 md:py-32 relative"
+      className="pt-24 pb-20 md:pt-32 md:pb-32 relative"
       ref={ref}
     >
       <div className="container mx-auto px-6">
@@ -221,12 +285,17 @@ const Projects = ({ darkMode }) => {
                   key={project.id}
                   layout
                   initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    y: hoveredCard === project.id ? -10 : 0
+                  }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -10 }}
+                  onMouseEnter={() => setHoveredCard(project.id)}
+                  onMouseLeave={() => setHoveredCard(null)}
                   onClick={() => setSelectedProject(project)}
-                  className={`group rounded-2xl overflow-hidden cursor-pointer ${
+                  className={`${!hoveringButton ? 'group' : ''} rounded-2xl overflow-hidden cursor-pointer ${
                     project.featured 
                       ? (darkMode ? 'glass-dark border border-[#D4AF37]/30 hover:border-[#D4AF37]/60' : 'bg-white shadow-xl border-2 border-[#D4AF37]/50 hover:border-[#D4AF37]')
                       : (darkMode ? 'glass-dark' : 'bg-white shadow-xl border border-gray-200')
@@ -295,29 +364,45 @@ const Projects = ({ darkMode }) => {
 
                     {/* Links */}
                     <div className="flex gap-3">
-                      <motion.a
-                        href={project.github}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all flex-1 justify-center ${
-                          darkMode
-                            ? 'bg-white/10 hover:bg-white/20'
-                            : 'bg-gray-100 hover:bg-gray-200'
-                        }`}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Github size={16} />
-                        <span className="text-sm">Code</span>
-                      </motion.a>
+                      {project.github !== '#' && (
+                        <motion.a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          onMouseEnter={() => setHoveringButton(true)}
+                          onMouseLeave={() => setHoveringButton(false)}
+                          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all justify-center ${
+                            project.demo === '#' ? 'w-full' : 'flex-1'
+                          } ${
+                            darkMode
+                              ? 'bg-white/10 hover:bg-white/20'
+                              : 'bg-gray-100 hover:bg-gray-200'
+                          }`}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Github size={16} />
+                          <span className="text-sm">Code</span>
+                        </motion.a>
+                      )}
                       
-                      <motion.a
-                        href={project.demo}
-                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-neon-red to-neon-crimson text-white font-medium flex-1 justify-center"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <ExternalLink size={16} />
-                        <span className="text-sm">Demo</span>
-                      </motion.a>
+                      {project.demo !== '#' && (
+                        <motion.a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          onMouseEnter={() => setHoveringButton(true)}
+                          onMouseLeave={() => setHoveringButton(false)}
+                          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-neon-red to-neon-crimson text-white font-medium flex-1 justify-center"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <ExternalLink size={16} />
+                          <span className="text-sm">Demo</span>
+                        </motion.a>
+                      )}
                     </div>
                   </div>
 
@@ -411,9 +496,7 @@ const Projects = ({ darkMode }) => {
                       darkMode ? 'text-gray-300' : 'text-gray-700'
                     }`}>
                       {(selectedProject.fullDescription || selectedProject.description).split('•').filter(item => item.trim()).map((bullet, index) => (
-                        <p key={index} className="mb-3">
-                          • {bullet.trim()}
-                        </p>
+                        <p key={index} className="mb-3" dangerouslySetInnerHTML={{ __html: `• ${bullet.trim()}` }} />
                       ))}
                     </div>
                   </div>
@@ -438,24 +521,26 @@ const Projects = ({ darkMode }) => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className={`flex gap-4 ${selectedProject.demo === '#' ? 'justify-center' : ''}`}>
-                    <motion.a
-                      href={selectedProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all justify-center ${
-                        selectedProject.demo === '#' ? 'w-full max-w-md' : 'flex-1'
-                      } ${
-                        darkMode
-                          ? 'bg-white/10 hover:bg-white/20'
-                          : 'bg-gray-100 hover:bg-gray-200'
-                      }`}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Github size={20} />
-                      View Code
-                    </motion.a>
+                  <div className="flex gap-4 justify-center">
+                    {selectedProject.github !== '#' && (
+                      <motion.a
+                        href={selectedProject.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all justify-center ${
+                          selectedProject.demo === '#' ? 'w-full max-w-md' : 'flex-1'
+                        } ${
+                          darkMode
+                            ? 'bg-white/10 hover:bg-white/20'
+                            : 'bg-gray-100 hover:bg-gray-200'
+                        }`}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Github size={20} />
+                        View Code
+                      </motion.a>
+                    )}
 
                     {selectedProject.demo !== '#' && (
                       <motion.a

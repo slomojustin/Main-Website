@@ -242,12 +242,11 @@ The 3D laptop is created procedurally with Three.js geometry. If you see issues:
 - Ensure browser supports WebGL 2.0
 - Try a different browser
 
-### GitHub Pages 404 Error
+### GitHub Pages 404 or blank page
 
-If you get 404 errors on GitHub Pages:
-- Ensure `base` in `vite.config.js` matches your repo name
-- Check that `gh-pages` branch exists and is set as source
-- Wait a few minutes for deployment to complete
+- In **Settings → Pages**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
+- The workflow sets `BASE_PATH` to your repo name automatically; if you renamed the repo, the URL is `https://USERNAME.github.io/NEW_REPO_NAME/`.
+- After pushing, wait 1–2 minutes and check the **Actions** tab to confirm the deploy workflow succeeded.
 
 ## 📧 Support
 

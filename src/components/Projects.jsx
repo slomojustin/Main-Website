@@ -174,15 +174,68 @@ const Projects = ({ darkMode }) => {
       icon: Server,
       featured: false
     },
+    {
+      id: 10,
+      title: 'NGordnet (WordNet & N-grams)',
+      category: 'Software',
+      description: 'WordNet-based query tool extending an N-gram frequency project with synset/hyponym data and "is-a" relationship modeling.',
+      fullDescription: `• Built a WordNet-based query tool that extends an N-gram project with synset/hyponym data and "is-a" relationship modeling.
+
+• Implemented a HyponymsHandler to compute hyponyms for one or more words (with optional k parameter) and wired it to APIs and the front-end UI.
+
+• Used NGramMap and TimeSeries, wrote custom data structures, and added unit tests with an autograder to validate hyponym queries.
+
+• <span style="color: #FFFFFF; background-color: rgba(212, 175, 55, 0.15); padding: 4px 8px; border-radius: 4px; font-weight: 500; border-left: 3px solid #D4AF37;">Note: GitHub repository unavailable as this was a university course project with academic integrity policies.</span>`,
+      tech: ['Java', 'Data Structures', 'APIs'],
+      image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop',
+      github: '#',
+      demo: '#',
+      icon: Code2,
+      featured: false
+    },
+    {
+      id: 11,
+      title: 'BYOW (Build Your Own World)',
+      category: 'Software',
+      description: '2D tile-based world generation engine with pseudorandom rooms and hallways, seed-based reproducibility, and keyboard exploration.',
+      fullDescription: `• Built a 2D tile-based world generator that creates random rooms and hallways with varied sizes, positions, and connectivity.
+
+• Wrote interactWithInputString for seed-based reproducible worlds and added keyboard controls for exploring the generated world.
+
+• Worked in a two-person team with minimal starter code, focusing on modularity, clear file layout, and code reviews.
+
+• <span style="color: #FFFFFF; background-color: rgba(212, 175, 55, 0.15); padding: 4px 8px; border-radius: 4px; font-weight: 500; border-left: 3px solid #D4AF37;">Note: GitHub repository unavailable as this was a university course project with academic integrity policies.</span>`,
+      tech: ['Java', 'Algorithms', 'Game Dev'],
+      image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=600&fit=crop',
+      github: '#',
+      demo: '#',
+      icon: Code2,
+      featured: false
+    },
+    {
+      id: 12,
+      title: 'Single-Cycle & Pipelined RISC-V CPU (Logisim)',
+      category: 'Software',
+      description: 'Built a working single-cycle RISC-V CPU in Logisim, then extended to a 2-stage pipelined design with hazard handling.',
+      fullDescription: `• Built a working single-cycle RISC-V CPU in Logisim, wiring together an ALU, 32-register file, immediate generator, and datapath to correctly execute basic arithmetic instructions.
+
+• Extended the CPU to support core RISC-V instruction types (I, R, B, S, U, J) with control logic for branching, jumping, and memory access, and verified it using integration tests.
+
+• Transformed the design into a 2-stage pipelined CPU with pipeline registers and hazard handling (including branch/jump flushing) for higher throughput.`,
+      tech: ['Logisim', 'RISC-V', 'Digital Logic'],
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
+      github: '#',
+      demo: '#',
+      icon: Server,
+      featured: false
+    },
   ]
 
-  const filters = ['Featured', 'Hardware', 'Security', 'Networks', 'All']
+  const filters = ['Featured', 'Hardware', 'Security', 'Networks', 'Software']
   
   const getFilteredProjects = () => {
     if (activeFilter === 'Featured') {
       return projects.filter(p => p.featured)
-    } else if (activeFilter === 'All') {
-      return projects
     } else {
       return projects.filter(p => p.category === activeFilter)
     }

@@ -219,7 +219,7 @@ const About = ({ darkMode }) => {
             transition={{ delay: 0.8 }}
           >
             {[
-              { label: 'Projects', value: '11', coins: 11 },
+              { label: 'Projects', value: '14', coins: 14 },
               { label: 'Technologies', value: '14', coins: 14 },
               { label: 'Coffees', value: '∞', coins: 100 }
             ].map((stat, index) => (

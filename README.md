@@ -107,47 +107,40 @@ The site uses Inter by default. To change the font:
 
 ## 🚀 Deployment to GitHub Pages
 
-### Automatic Deployment
+The repo is set up to deploy **automatically with GitHub Actions** whenever you push to `main`. No `npm run deploy` or `gh-pages` branch needed.
 
-1. **Initialize Git repository** (if not already done):
+### Steps to go live (do this once)
+
+1. **Create a repo on GitHub** (e.g. `Main-Website`) and **do not** add a README or .gitignore (you already have them).
+
+2. **Push your code** (from your project folder):
    ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   ```
-
-2. **Create a new repository on GitHub** (without initializing it)
-
-3. **Update `vite.config.js`**:
-   - If using a custom domain, keep `base: '/'`
-   - If using `username.github.io/repo-name`, change to:
-   ```js
-   base: '/repo-name/'
-   ```
-
-4. **Link to GitHub and deploy**:
-   ```bash
-   git remote add origin https://github.com/yourusername/your-repo-name.git
+   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
    git branch -M main
    git push -u origin main
-   npm run deploy
    ```
 
-5. **Enable GitHub Pages**:
-   - Go to your repository settings
-   - Navigate to "Pages" section
-   - Select `gh-pages` branch as the source
-   - Your site will be live at `https://yourusername.github.io/repo-name/`
+3. **Turn on GitHub Pages**:
+   - Repo → **Settings** → **Pages** (left sidebar).
+   - Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
+   - Save. No need to choose a branch or folder.
 
-### Manual Deployment
+4. **Wait for the first deploy** (about 1–2 minutes):
+   - Repo → **Actions** tab. You should see a “Deploy to GitHub Pages” workflow run.
+   - When it’s green, your site is at:  
+     **`https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`**
 
-```bash
-# Build the project
-npm run build
+After that, every `git push origin main` will trigger a new deploy. You can watch runs under the **Actions** tab.
 
-# The dist folder contains your production-ready site
-# Upload the contents to your hosting provider
-```
+### How it works (so you can do it yourself)
+
+- **Workflow file**: `.github/workflows/deploy.yml` defines the pipeline.
+- **Trigger**: Runs on every push to `main`.
+- **Build**: Uses Node 20, runs `npm ci` and `npm run build` with `BASE_PATH=/${{ repo name }}/` so asset URLs match GitHub Pages.
+- **Deploy**: Uploads the `dist` folder and publishes it with GitHub’s `deploy-pages` action.
+- **Base path**: In `vite.config.js`, `base` is `process.env.BASE_PATH || '/'`, so locally you still use `/`, and in CI we set the repo path for GitHub Pages.
+
+For more detail, see **`DEPLOY.md`** in this repo.
 
 ## 📱 PWA Support
 

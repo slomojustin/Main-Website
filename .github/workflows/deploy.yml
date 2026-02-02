@@ -1,0 +1,81 @@
+# =============================================================================
+# GitHub Pages deploy workflow — what each part does
+# =============================================================================
+#
+# WHEN IT RUNS (trigger):
+#   - On every push to the "main" branch. Change to "master" if that's your default.
+#
+# WHAT IT DOES (two jobs):
+#   1. build: install deps, build the Vite app, upload the dist folder as an "artifact"
+#   2. deploy: take that artifact and publish it to GitHub Pages
+#
+# LEARN MORE: https://docs.github.com/en/actions/guides
+# =============================================================================
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+# Optional: uncomment to also run when you push to master
+#      - master
+
+# Permissions for the default GITHUB_TOKEN (needed for deploy)
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevent multiple deploys from overlapping
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Job 1: Build the site
+  # ---------------------------------------------------------------------------
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build for GitHub Pages
+        run: npm run build
+        env:
+          # Project sites live at username.github.io/REPO_NAME/ — base path must match
+          BASE_PATH: /${{ github.event.repository.name }}/
+
+      # SPA fallback: so direct URLs (e.g. /about) show index.html and React can handle routing
+      - name: Add 404 page for client-side routing
+        run: cp dist/index.html dist/404.html
+
+      - name: Upload site artifact (includes 404.html)
+        uses: actions/upload-pages-artifact@3
+        with:
+          path: ./dist
+
+  # ---------------------------------------------------------------------------
+  # Job 2: Deploy to GitHub Pages (runs after build, uses the uploaded artifact)
+  # ---------------------------------------------------------------------------
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@4

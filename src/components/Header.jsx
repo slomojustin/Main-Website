@@ -117,8 +117,18 @@ const Header = ({ darkMode, toggleTheme }) => {
             </motion.button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - volume and theme always visible */}
           <div className="md:hidden flex items-center space-x-4">
+            <motion.button
+              onClick={toggleMute}
+              className={`p-2 rounded-full ${
+                darkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-gray-200 hover:bg-gray-300'
+              }`}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Toggle audio"
+            >
+              {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+            </motion.button>
             <motion.button
               onClick={toggleTheme}
               className={`p-2 rounded-full ${

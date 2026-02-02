@@ -44,24 +44,19 @@ export const AudioProvider = ({ children }) => {
       setAudioEnabled(false)
     }
 
-    // Initialize sound effects only if audio works
-    setTimeout(() => {
-      if (initialized) {
-        try {
-          soundEffects.current = {
-            hover: new Audio('/audio/hover.mp3'),
-            click: new Audio('/audio/click.mp3'),
-            transition: new Audio('/audio/transition.mp3'),
-          }
-          
-          Object.values(soundEffects.current).forEach(sound => {
-            sound.volume = 0.7 // Increased volume for click sounds
-          })
-        } catch (error) {
-          console.log('Sound effects could not be loaded')
-        }
+    // Initialize sound effects independently so they work even if background music is off or fails
+    try {
+      soundEffects.current = {
+        hover: new Audio('/audio/hover.mp3'),
+        click: new Audio('/audio/click.mp3'),
+        transition: new Audio('/audio/transition.mp3'),
       }
-    }, 100)
+      Object.values(soundEffects.current).forEach(sound => {
+        sound.volume = 0.7
+      })
+    } catch (error) {
+      console.log('Sound effects could not be loaded')
+    }
 
     return () => {
       // Cleanup
@@ -104,18 +99,13 @@ export const AudioProvider = ({ children }) => {
   }
 
   const playSound = (soundName) => {
-    // Sound effects always play regardless of mute state (removed isMuted check)
-    if (!audioEnabled || !soundEffects.current[soundName]) return
-    
+    // Click/hover/transition always play when available, regardless of music on/off or mute
+    if (!soundEffects.current[soundName]) return
     try {
       const sound = soundEffects.current[soundName]
-      sound.currentTime = 0 // Reset to start
-      sound.play().catch(err => {
-        // Silently fail if sound can't play
-      })
-    } catch (err) {
-      // Silently fail
-    }
+      sound.currentTime = 0
+      sound.play().catch(() => {})
+    } catch (err) {}
   }
 
   return (

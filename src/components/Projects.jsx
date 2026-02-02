@@ -48,7 +48,7 @@ const Projects = ({ darkMode }) => {
       image: '/robot_car.jpg',
       github: '#',
       demo: '#',
-      icon: Code2,
+      icon: Server,
       featured: false
     },
     {
@@ -84,7 +84,7 @@ const Projects = ({ darkMode }) => {
       image: '/unicorn.png',
       github: '#',
       demo: '#',
-      icon: Server,
+      icon: Database,
       featured: false
     },
     {
@@ -96,13 +96,15 @@ const Projects = ({ darkMode }) => {
 
 • Analyzed protocol performance under packet loss scenarios, quantifying throughput degradation and recovery characteristics.
 
-• Created user-friendly documentation describing output and common failure modes, mirroring the troubleshooting guides used in customer support and pre-sales engineering workflows.`,
+• Created user-friendly documentation describing output and common failure modes, mirroring the troubleshooting guides used in customer support and pre-sales engineering workflows.
+
+• <span style="color: #FFFFFF; background-color: rgba(212, 175, 55, 0.15); padding: 4px 8px; border-radius: 4px; font-weight: 500; border-left: 3px solid #D4AF37;">Note: GitHub repository unavailable as this was a university course project with academic integrity policies.</span>`,
       tech: ['Python', 'Networking', 'TCP/IP'],
       image: 'TCP.png',
       github: '#',
       demo: '#',
       icon: Network,
-      featured: false
+      featured: true
     },
     {
       id: 6,
@@ -113,8 +115,29 @@ const Projects = ({ darkMode }) => {
 
 • Implemented robust error handling for dropped, duplicated, and malformed packets to map multi-hop network paths reliably.
 
-• Created clear documentation and common failure modes, closely mirroring the structured troubleshooting guides used in customer support and pre-sales engineering workflows.`,
+• Created clear documentation and common failure modes, closely mirroring the structured troubleshooting guides used in customer support and pre-sales engineering workflows.
+
+• <span style="color: #FFFFFF; background-color: rgba(212, 175, 55, 0.15); padding: 4px 8px; border-radius: 4px; font-weight: 500; border-left: 3px solid #D4AF37;">Note: GitHub repository unavailable as this was a university course project with academic integrity policies.</span>`,
       tech: ['Python', 'Networking', 'Algorithms'],
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop',
+      github: '#',
+      demo: '#',
+      icon: Network,
+      featured: false
+    },
+    {
+      id: 13,
+      title: 'Traceroute',
+      category: 'Networks',
+      description: 'Traceroute utility from scratch using UDP probes with incrementing TTL and raw packet parsing to map network paths, with robust handling for loss, silent routers, and loops.',
+      fullDescription: `• Built a traceroute utility from scratch that sends UDP probes with incrementing TTL values and parses raw packet headers to map network paths.
+
+• Implemented robust error handling for packet loss, silent routers, routing loops, and invalid responses while managing efficient timeouts.
+
+• Designed deduplication logic to filter duplicate packets by matching ICMP responses to specific probes, preventing false positives from network delays.
+
+• <span style="color: #FFFFFF; background-color: rgba(212, 175, 55, 0.15); padding: 4px 8px; border-radius: 4px; font-weight: 500; border-left: 3px solid #D4AF37;">Note: GitHub repository unavailable as this was a university course project with academic integrity policies.</span>`,
+      tech: ['C', 'UDP', 'ICMP', 'Networking'],
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop',
       github: '#',
       demo: '#',
@@ -136,7 +159,7 @@ const Projects = ({ darkMode }) => {
       github: 'https://github.com/slomojustin/Phishing-Detection-Tool',
       demo: '#',
       icon: Database,
-      featured: false
+      featured: true
     },
     {
       id: 8,
@@ -171,8 +194,8 @@ const Projects = ({ darkMode }) => {
       image: 'memory_safety.png',
       github: '#',
       demo: '#',
-      icon: Server,
-      featured: false
+      icon: Database,
+      featured: true
     },
     {
       id: 10,
@@ -226,7 +249,7 @@ const Projects = ({ darkMode }) => {
       image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
       github: '#',
       demo: '#',
-      icon: Server,
+      icon: Code2,
       featured: false
     },
   ]

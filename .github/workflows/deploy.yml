@@ -62,7 +62,7 @@ jobs:
         run: cp dist/index.html dist/404.html
 
       - name: Upload site artifact (includes 404.html)
-        uses: actions/upload-pages-artifact@3
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
@@ -78,4 +78,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@4
+        uses: actions/deploy-pages@v4

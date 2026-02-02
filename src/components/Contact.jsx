@@ -11,7 +11,7 @@ const Contact = ({ darkMode }) => {
   const socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com/justinwilliams55',
+      url: 'https://github.com/slomojustin',
       icon: Github,
       color: 'hover:text-gray-600 dark:hover:text-white'
     },

@@ -19,7 +19,7 @@ const GoldCoin = ({ size = 60 }) => {
       }}
     >
       <img
-        src="/gold-coin.png"
+        src={`${import.meta.env.BASE_URL}gold-coin.png`}
         alt="Gold Coin"
         width={size}
         height={size}

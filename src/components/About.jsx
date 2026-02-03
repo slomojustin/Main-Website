@@ -180,7 +180,7 @@ const About = ({ darkMode }) => {
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center flex-shrink-0 p-1">
                   <img 
-                    src="/berkeley-seal.png" 
+                    src={`${import.meta.env.BASE_URL}berkeley-seal.png`} 
                     alt="UC Berkeley Seal" 
                     className="w-full h-full object-contain"
                   />

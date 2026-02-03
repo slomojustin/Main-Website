@@ -4,6 +4,10 @@ import { useInView } from 'react-intersection-observer'
 import { Github, ExternalLink, Code2, Network, Server, Database, X } from 'lucide-react'
 import { useAudio } from '../hooks/useAudio'
 
+// Resolve public asset URL so it works on GitHub Pages (base path)
+const getAssetUrl = (path) =>
+  path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+
 const Projects = ({ darkMode }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -380,7 +384,7 @@ const Projects = ({ darkMode }) => {
                   {/* Project Image */}
                   <div className="relative h-48 overflow-hidden bg-gradient-to-br from-neon-red/20 to-neon-crimson/20">
                     <img 
-                      src={project.image} 
+                      src={getAssetUrl(project.image)} 
                       alt={project.title}
                       className="w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-110 transition-all duration-500"
                     />
@@ -537,7 +541,7 @@ const Projects = ({ darkMode }) => {
                 {/* Project Image */}
                 <div className="relative h-40 sm:h-52 md:h-64 overflow-hidden">
                   <img
-                    src={selectedProject.image}
+                    src={getAssetUrl(selectedProject.image)}
                     alt={selectedProject.title}
                     className="w-full h-full object-cover"
                   />

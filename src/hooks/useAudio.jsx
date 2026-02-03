@@ -18,38 +18,38 @@ export const AudioProvider = ({ children }) => {
 
   useEffect(() => {
     let initialized = false
-    
-    // Initialize background music
+    const base = import.meta.env.BASE_URL
+
+    // Initialize background music (use base URL so it works on GitHub Pages)
     try {
       const audio = new Audio()
-      audio.src = '/audio/background.mp3'
+      audio.src = `${base}audio/background.mp3`
       audio.loop = true
       audio.volume = 0.3
-      
+
       audio.addEventListener('canplaythrough', () => {
         backgroundMusic.current = audio
         initialized = true
         setAudioEnabled(true)
       }, { once: true })
-      
+
       audio.addEventListener('error', () => {
         console.log('Audio files not found - audio features disabled')
         setAudioEnabled(false)
       }, { once: true })
-      
-      // Try to load
+
       audio.load()
     } catch (error) {
       console.log('Audio not supported')
       setAudioEnabled(false)
     }
 
-    // Initialize sound effects independently so they work even if background music is off or fails
+    // Initialize sound effects (use base URL so they work on GitHub Pages)
     try {
       soundEffects.current = {
-        hover: new Audio('/audio/hover.mp3'),
-        click: new Audio('/audio/click.mp3'),
-        transition: new Audio('/audio/transition.mp3'),
+        hover: new Audio(`${base}audio/hover.mp3`),
+        click: new Audio(`${base}audio/click.mp3`),
+        transition: new Audio(`${base}audio/transition.mp3`),
       }
       Object.values(soundEffects.current).forEach(sound => {
         sound.volume = 0.7

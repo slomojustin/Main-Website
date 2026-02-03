@@ -153,7 +153,7 @@ const Hero = ({ darkMode }) => {
               transition={{ delay: 0.6 }}
             >
               <SoundButton
-                href="/Resume.pdf"
+                href={`${import.meta.env.BASE_URL}Resume.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 rounded-full bg-gradient-to-r from-neon-red to-neon-crimson hover:from-[#D4AF37] hover:to-[#B8960F] text-white hover:text-black font-semibold shadow-lg hover:shadow-xl transition-all"

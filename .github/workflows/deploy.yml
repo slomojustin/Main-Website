@@ -55,7 +55,7 @@ jobs:
         run: npm run build
         env:
           # Project sites live at username.github.io/REPO_NAME/ — base path must match
-          BASE_PATH: /${{ github.event.repository.name }}/
+          BASE_PATH: /
 
       # SPA fallback: so direct URLs (e.g. /about) show index.html and React can handle routing
       - name: Add 404 page for client-side routing

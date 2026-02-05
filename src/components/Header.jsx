@@ -21,7 +21,7 @@ const Header = ({ darkMode, toggleTheme }) => {
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
-    { name: 'Resume', href: `${import.meta.env.BASE_URL}Resume.pdf`, external: true },
+    { name: 'Resume', href: `${import.meta.env.BASE_URL}Justin_Williams_Resume.pdf`, external: true },
   ]
 
   const handleNavClick = (e, href, external) => {

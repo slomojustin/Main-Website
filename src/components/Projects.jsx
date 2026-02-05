@@ -123,7 +123,7 @@ const Projects = ({ darkMode }) => {
 
 • <span style="color: #FFFFFF; background-color: rgba(212, 175, 55, 0.15); padding: 4px 8px; border-radius: 4px; font-weight: 500; border-left: 3px solid #D4AF37;">Note: GitHub repository unavailable as this was a university course project with academic integrity policies.</span>`,
       tech: ['Python', 'Networking', 'Algorithms'],
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop',
+      image: '/Distance-vector routing in digital networks.png',
       github: '#',
       demo: '#',
       icon: Network,
@@ -142,7 +142,7 @@ const Projects = ({ darkMode }) => {
 
 • <span style="color: #FFFFFF; background-color: rgba(212, 175, 55, 0.15); padding: 4px 8px; border-radius: 4px; font-weight: 500; border-left: 3px solid #D4AF37;">Note: GitHub repository unavailable as this was a university course project with academic integrity policies.</span>`,
       tech: ['C', 'UDP', 'ICMP', 'Networking'],
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop',
+      image: '/traceroute.png',
       github: '#',
       demo: '#',
       icon: Network,

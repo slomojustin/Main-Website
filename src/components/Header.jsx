@@ -19,6 +19,7 @@ const Header = ({ darkMode, toggleTheme }) => {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
     { name: 'Resume', href: `${import.meta.env.BASE_URL}Justin_Williams_Resume.pdf`, external: true },

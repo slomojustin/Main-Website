@@ -17,9 +17,9 @@ A sleek, minimalist single-page portfolio website built with React, Vite, Tailwi
 ## 🎨 Sections
 
 1. **Hero**: Large hero with name, tagline, and interactive 3D laptop model
-2. **About**: Bio with animated skill tags and statistics
-3. **Projects**: Masonry grid with 6 project cards, filter tabs, and hover effects
-4. **Experience**: Vertical timeline with work experience and education
+2. **About**: Summary blurb, bio, animated skill tags, and stats
+3. **Experience**: Work experience cards (role, company, bullets) plus an education card with relevant coursework
+4. **Projects**: Masonry grid with project cards, filter tabs, and hover effects
 5. **Contact**: Contact form with social media links
 
 ## 🛠️ Tech Stack
@@ -69,16 +69,16 @@ Edit the following components to add your information:
    - Change the tagline in lines 121-128
 
 2. **About Section** (`src/components/About.jsx`):
-   - Edit bio text in lines 82-95
-   - Modify skills array in lines 11-20
+   - Edit summary/bio text near the top of the bio card
+   - Modify the `skills` array
 
-3. **Projects Section** (`src/components/Projects.jsx`):
-   - Replace project data in lines 16-73
+3. **Experience Section** (`src/components/Experience.jsx`):
+   - Update the `experience` array (role, company, period, bullets)
+   - Update the `education` object (degree, school, period, coursework)
+
+4. **Projects Section** (`src/components/Projects.jsx`):
+   - Replace project data in the `projects` array
    - Add your own project images, descriptions, and links
-
-4. **Experience Section** (`src/components/Experience.jsx`):
-   - Update experience entries in lines 14-67
-   - Add your education and work history
 
 5. **Contact Section** (`src/components/Contact.jsx`):
    - Update contact info in lines 53-71
@@ -184,9 +184,9 @@ Website/
 │   ├── components/
 │   │   ├── Header.jsx        # Navigation header
 │   │   ├── Hero.jsx          # Hero section with 3D
-│   │   ├── About.jsx         # About section
+│   │   ├── About.jsx         # About section (summary, bio, skills)
+│   │   ├── Experience.jsx    # Work experience + education
 │   │   ├── Projects.jsx      # Projects showcase
-│   │   ├── Experience.jsx    # Timeline
 │   │   ├── Contact.jsx       # Contact form
 │   │   └── Footer.jsx        # Footer
 │   ├── App.jsx               # Main app component

@@ -1,13 +1,10 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { useAudio } from '../hooks/useAudio'
 
 const LoadingScreen = ({ isLoading, onComplete }) => {
-  const { startBackgroundMusic } = useAudio()
   const [showEnterButton, setShowEnterButton] = useState(false)
 
   const handleEnter = () => {
-    startBackgroundMusic()
     onComplete()
   }
 

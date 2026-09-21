@@ -9,11 +9,12 @@ const About = ({ darkMode }) => {
   })
 
   const skills = [
-    'Verilog', 'FPGA (PYNQ-Z1)', 'Digital Logic', 
-    'Python', 'C/C++', 'Go', 'Arduino', 'Embedded Systems',
-    'Networking (TCP/IP)', 'Cryptography', 
-    'Web Security', 'Secure Systems', 'Vulnerability Analysis',
-    'Routing Protocols'
+    'Python', 'Java', 'Go', 'C++', 'Git', 'Cryptography', 'Networking',
+    'Spring Boot', 'Secure Systems Design', 'Multi-Agent Systems',
+    'LangGraph', 'Prompt Engineering', 'Natural Language Processing',
+    'React', 'Flask', 'Next.js', 'Model Context Protocol', 'PostgreSQL',
+    'AWS (ECS Fargate, ECR, IAM, SSM Parameter Store, CloudWatch, RDS)',
+    'FastAPI', 'Docker'
   ]
 
   const education = {
@@ -101,7 +102,16 @@ const About = ({ darkMode }) => {
             <p className={`text-lg md:text-xl leading-relaxed mb-6 ${
               darkMode ? 'text-gray-300' : 'text-gray-700'
             }`}>
-              <span className="text-neon-red font-semibold">Electrical Engineering:</span> I design and implement 
+              EECS graduate from UC Berkeley with hands-on experience building and orchestrating{' '}
+              <span className="text-neon-crimson font-semibold">AI agent systems</span>. Fluent in{' '}
+              <span className="text-neon-red font-semibold">LLM-augmented development workflows</span> using
+              Claude and OpenAI APIs, agents, and Python/TypeScript full-stack environments.
+            </p>
+
+            <p className={`text-lg md:text-xl leading-relaxed mb-6 ${
+              darkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
+              <span className="text-neon-red font-semibold">Electrical Engineering:</span> I design and implement
               digital systems from the ground up, including{' '}
               <span className="text-neon-crimson font-semibold">pipelined RISC-V CPUs on FPGAs</span>,{' '}
               <span className="text-neon-red font-semibold">embedded systems</span> with Arduino and analog circuits, 

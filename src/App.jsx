@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -78,32 +78,12 @@ function App() {
           <Contact darkMode={darkMode} />
         </main>
 
-        {/* Floating background elements */}
+        {/* Static background glow (no longer animated — the continuous
+            scale/opacity animation on a blurred layer was expensive to
+            repaint every frame for as long as the site was open) */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-          <motion.div
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-red/10 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-crimson/10 rounded-full blur-3xl"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-red/10 rounded-full blur-3xl opacity-40" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-crimson/10 rounded-full blur-3xl opacity-40" />
         </div>
       </div>
       )}

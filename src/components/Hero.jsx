@@ -72,7 +72,7 @@ function TerminalTypingText({ snippets }) {
 }
 
 const Hero = ({ darkMode }) => {
-  const tagline = "Building reliable hardware & secure systems — from digital circuits to encrypted networks"
+  const tagline = "Building and shipping AI agent systems — from LangGraph pipelines to production AWS infra"
   const typedText = useTypewriter(tagline, 30)
 
   const terminalSnippets = [

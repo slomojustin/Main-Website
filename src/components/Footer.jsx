@@ -46,7 +46,7 @@ const Footer = ({ darkMode }) => {
                 Quick Links
               </h4>
               <ul className="space-y-2">
-                {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+                {['Home', 'About', 'Experience', 'Projects', 'Contact'].map((item) => (
                   <li key={item}>
                     <a
                       href={`#${item.toLowerCase()}`}
@@ -73,20 +73,20 @@ const Footer = ({ darkMode }) => {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="mailto:your.email@example.com"
+                    href="mailto:justinwilliams@berkeley.edu"
                     className={`text-sm transition-colors ${
-                      darkMode 
-                        ? 'text-gray-400 hover:text-neon-red' 
+                      darkMode
+                        ? 'text-gray-400 hover:text-neon-red'
                         : 'text-gray-600 hover:text-neon-red'
                     }`}
                   >
-                    your.email@example.com
+                    justinwilliams@berkeley.edu
                   </a>
                 </li>
                 <li className={`text-sm ${
                   darkMode ? 'text-gray-400' : 'text-gray-600'
                 }`}>
-                  San Francisco, CA
+                  Fremont, CA
                 </li>
               </ul>
             </div>
@@ -101,7 +101,7 @@ const Footer = ({ darkMode }) => {
               <p className={`text-sm ${
                 darkMode ? 'text-gray-400' : 'text-gray-600'
               }`}>
-                © {new Date().getFullYear()} Your Name. All rights reserved.
+                © {new Date().getFullYear()} Justin Williams. All rights reserved.
               </p>
 
               <motion.p 
@@ -119,29 +119,6 @@ const Footer = ({ darkMode }) => {
                 </motion.span>
                 {' '}and React
               </motion.p>
-
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className={`text-sm transition-colors ${
-                    darkMode 
-                      ? 'text-gray-400 hover:text-neon-blue' 
-                      : 'text-gray-600 hover:text-neon-blue'
-                  }`}
-                >
-                  Privacy Policy
-                </a>
-                <a
-                  href="#"
-                  className={`text-sm transition-colors ${
-                    darkMode 
-                      ? 'text-gray-400 hover:text-neon-blue' 
-                      : 'text-gray-600 hover:text-neon-blue'
-                  }`}
-                >
-                  Terms of Service
-                </a>
-              </div>
             </div>
           </div>
         </div>

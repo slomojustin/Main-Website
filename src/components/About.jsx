@@ -111,29 +111,33 @@ const About = ({ darkMode }) => {
             <p className={`text-lg md:text-xl leading-relaxed mb-6 ${
               darkMode ? 'text-gray-300' : 'text-gray-700'
             }`}>
-              <span className="text-neon-red font-semibold">Electrical Engineering:</span> I design and implement
-              digital systems from the ground up, including{' '}
-              <span className="text-neon-crimson font-semibold">pipelined RISC-V CPUs on FPGAs</span>,{' '}
-              <span className="text-neon-red font-semibold">embedded systems</span> with Arduino and analog circuits, 
-              and hardware optimized to meet{' '}
-              <span className="text-neon-crimson font-semibold">100 MHz timing constraints</span>.
+              <span className="text-neon-red font-semibold">AI Agent Systems:</span> At{' '}
+              <span className="text-neon-crimson font-semibold">Qidds</span>, I design and ship{' '}
+              <span className="text-neon-crimson font-semibold">LangGraph multi-agent pipelines</span> in
+              production, own the{' '}
+              <span className="text-neon-red font-semibold">AWS deployment pipeline</span> end-to-end (ECS
+              Fargate, ECR, IAM/OIDC, SSM, CloudWatch, RDS), and build admin-gated approval workflows on top
+              of a{' '}
+              <span className="text-neon-crimson font-semibold">Spring Boot REST API</span>. At{' '}
+              <span className="text-neon-crimson font-semibold">PeerSweep</span>, I orchestrate up to 25
+              parallel agents to turn live market data into decision intelligence.
             </p>
-            
+
             <p className={`text-lg md:text-xl leading-relaxed ${
               darkMode ? 'text-gray-300' : 'text-gray-700'
             }`}>
-              <span className="text-neon-red font-semibold">Software Engineering:</span> I build secure, 
-              scalable systems—from implementing{' '}
+              <span className="text-neon-red font-semibold">Foundations:</span> That agent work sits on top
+              of a systems background—implementing{' '}
               <span className="text-neon-crimson font-semibold">TCP protocols</span> and{' '}
-              <span className="text-neon-red font-semibold">distance-vector routing algorithms</span>, 
-              to developing{' '}
-              <span className="text-neon-crimson font-semibold">encrypted file-sharing platforms</span> with 
-              cryptographic protocols. I excel in Python, Go, Java, and C++, with expertise in networking, 
-              security, and systems programming.
+              <span className="text-neon-red font-semibold">encrypted file-sharing platforms</span>, and
+              designing{' '}
+              <span className="text-neon-crimson font-semibold">pipelined RISC-V CPUs on FPGAs</span>. I
+              work across Python, Go, Java, and C++, with production experience in networking, security,
+              and cloud infrastructure.
             </p>
 
             <p className="text-lg md:text-xl leading-relaxed mt-6 text-neon-red font-bold">
-              I'm particularly interested in systems, infrastructure, embedded, and security-focused engineering roles.
+              I'm particularly interested in AI agent, applied ML, and backend infrastructure engineering roles.
             </p>
           </motion.div>
 

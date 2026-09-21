@@ -383,9 +383,11 @@ const Projects = ({ darkMode }) => {
                 >
                   {/* Project Image */}
                   <div className="relative h-48 overflow-hidden bg-gradient-to-br from-neon-red/20 to-neon-crimson/20">
-                    <img 
-                      src={getAssetUrl(project.image)} 
+                    <img
+                      src={getAssetUrl(project.image)}
                       alt={project.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-110 transition-all duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

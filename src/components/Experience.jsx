@@ -78,7 +78,7 @@ const Experience = ({ darkMode }) => {
         </motion.div>
 
         {/* Experience Cards */}
-        <div className="max-w-3xl mx-auto space-y-8 mb-16">
+        <div className="max-w-5xl mx-auto space-y-8 mb-16">
           {experience.map((job, index) => (
             <motion.div
               key={job.id}
@@ -90,50 +90,51 @@ const Experience = ({ darkMode }) => {
               }`}
               whileHover={{ y: -5 }}
             >
-              {/* Icon & Period */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-neon-red to-neon-crimson flex items-center justify-center flex-shrink-0">
-                  <Briefcase className="text-white" size={32} />
+              <div className="md:flex md:gap-10">
+                {/* Left: Icon, role, company, period */}
+                <div className="md:w-72 flex-shrink-0 mb-6 md:mb-0">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-neon-red to-neon-crimson flex items-center justify-center flex-shrink-0 mb-4">
+                    <Briefcase className="text-white" size={32} />
+                  </div>
+
+                  <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                    {job.role}
+                  </h3>
+
+                  <p className={`text-lg font-semibold mb-3 ${
+                    darkMode ? 'text-neon-red' : 'text-red-600'
+                  }`}>
+                    {job.company} · {job.location}
+                  </p>
+
+                  <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${
+                    darkMode ? 'bg-white/10' : 'bg-gray-100'
+                  }`}>
+                    {job.period}
+                  </span>
                 </div>
-                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${
-                  darkMode ? 'bg-white/10' : 'bg-gray-100'
+
+                {/* Right: Bullets */}
+                <ul className={`flex-1 space-y-3 text-md md:border-l md:pl-10 ${
+                  darkMode ? 'text-gray-300 md:border-white/10' : 'text-gray-700 md:border-gray-200'
                 }`}>
-                  {job.period}
-                </span>
+                  {job.bullets.map((bullet, i) => (
+                    <li key={i} className="flex gap-3">
+                      <span className={`mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                        darkMode ? 'bg-neon-red' : 'bg-red-600'
+                      }`} />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              {/* Role */}
-              <h3 className="text-2xl md:text-3xl font-bold mb-2">
-                {job.role}
-              </h3>
-
-              {/* Company */}
-              <p className={`text-lg font-semibold mb-4 ${
-                darkMode ? 'text-neon-red' : 'text-red-600'
-              }`}>
-                {job.company} · {job.location}
-              </p>
-
-              {/* Bullets */}
-              <ul className={`space-y-3 text-md ${
-                darkMode ? 'text-gray-300' : 'text-gray-700'
-              }`}>
-                {job.bullets.map((bullet, i) => (
-                  <li key={i} className="flex gap-3">
-                    <span className={`mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                      darkMode ? 'bg-neon-red' : 'bg-red-600'
-                    }`} />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
             </motion.div>
           ))}
         </div>
 
         {/* Education Card */}
         <motion.div
-          className="max-w-3xl mx-auto"
+          className="max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}

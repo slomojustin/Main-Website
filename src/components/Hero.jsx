@@ -235,11 +235,6 @@ const Hero = ({ darkMode }) => {
 
       {/* Parallax Background Shapes */}
       <motion.div
-        className="absolute top-20 right-10 w-20 h-20 border-2 border-neon-red/30 rounded-lg"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-      />
-      <motion.div
         className="absolute bottom-20 left-10 w-16 h-16 border-2 border-neon-crimson/30 rounded-full"
         animate={{ y: [0, 20, 0] }}
         transition={{ duration: 4, repeat: Infinity }}

@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import GoldCoin from './GoldCoin'
 
 const About = ({ darkMode }) => {
   const [ref, inView] = useInView({
@@ -16,14 +15,6 @@ const About = ({ darkMode }) => {
     'AWS (ECS Fargate, ECR, IAM, SSM Parameter Store, CloudWatch, RDS)',
     'FastAPI', 'Docker'
   ]
-
-  const education = {
-    degree: 'B.S. Electrical Engineering & Computer Science',
-    school: 'University of California, Berkeley',
-    period: 'August 2021 - August 2025',
-    gpa: 'N/A',
-    coursework: ['Digital Design & Integrated Circuits', 'Machine Structures', 'Computer Security', 'Communication Networks']
-  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -59,7 +50,7 @@ const About = ({ darkMode }) => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-5xl mx-auto"
         >
           {/* Section Title */}
           <div className="text-center mb-16">
@@ -91,7 +82,7 @@ const About = ({ darkMode }) => {
 
           {/* Bio Content */}
           <motion.div
-            className={`rounded-2xl p-8 md:p-12 mb-12 ${
+            className={`rounded-2xl p-8 md:p-12 mb-8 ${
               darkMode ? 'glass-dark' : 'bg-white shadow-xl border border-gray-200'
             }`}
             initial={{ opacity: 0, y: 30 }}
@@ -141,133 +132,42 @@ const About = ({ darkMode }) => {
             </p>
           </motion.div>
 
-          {/* Skills & Education Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Skills Section */}
-            <motion.div
-              className={`rounded-2xl p-6 md:p-8 ${
-                darkMode ? 'glass-dark' : 'bg-white shadow-xl border border-gray-200'
-              }`}
-              initial={{ opacity: 0, x: -30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.5 }}
-              whileHover={{ y: -5 }}
-            >
-              <h3 className="text-xl md:text-2xl font-bold mb-6">
-                Skills
-              </h3>
-              
-              <motion.div
-                className="flex flex-wrap gap-3"
-                variants={containerVariants}
-                initial="hidden"
-                animate={inView ? "visible" : "hidden"}
-              >
-                {skills.map((skill, index) => (
-                  <motion.span
-                    key={skill}
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`px-2 py-1 rounded font-mono text-sm font-medium bullet-item ${
-                      darkMode 
-                        ? 'bg-neon-red/20 text-neon-red border border-neon-red/30 hover:bg-neon-red/30' 
-                        : 'bg-red-100 text-red-700 border border-red-200 hover:bg-red-200'
-                    }`}
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            {/* Education Section */}
-            <motion.div
-              className={`rounded-2xl p-6 md:p-8 ${
-                darkMode ? 'glass-dark' : 'bg-white shadow-xl border border-gray-200'
-              }`}
-              initial={{ opacity: 0, x: 30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.6 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center flex-shrink-0 p-1">
-                  <img 
-                    src={`${import.meta.env.BASE_URL}berkeley-seal.png`} 
-                    alt="UC Berkeley Seal" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-bold mb-1">
-                    Education
-                  </h3>
-                  <span className={`text-sm ${
-                    darkMode ? 'text-gray-400' : 'text-gray-600'
-                  }`}>
-                    {education.period}
-                  </span>
-                </div>
-              </div>
-
-              <h4 className={`text-lg font-bold mb-1 ${
-                darkMode ? 'text-white' : 'text-gray-900'
-              }`}>
-                {education.degree}
-              </h4>
-              
-              <p className={`font-semibold ${
-                darkMode ? 'text-neon-red' : 'text-red-600'
-              }`}>
-                {education.school}
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Continental Coin Stats */}
+          {/* Skills Section */}
           <motion.div
-            className="grid grid-cols-3 gap-6 mt-16"
+            className={`rounded-2xl p-8 md:p-10 ${
+              darkMode ? 'glass-dark' : 'bg-white shadow-xl border border-gray-200'
+            }`}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.8 }}
+            transition={{ delay: 0.5 }}
+            whileHover={{ y: -5 }}
           >
-            {[
-              { label: 'Projects', value: '14', coins: 14 },
-              { label: 'Technologies', value: '14', coins: 14 },
-              { label: 'Coffees', value: '∞', coins: 100 }
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className={`text-center p-6 rounded-xl relative overflow-hidden ${
-                  darkMode ? 'glass-dark hover:bg-[#D4AF37]/5' : 'bg-white shadow-lg border border-gray-200 hover:border-[#D4AF37]'
-                }`}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.8 + index * 0.1 }}
-              >
-                {/* Gold coin */}
-                <div className="flex justify-center mb-3">
-                  <GoldCoin size={50} />
-                </div>
-                
-                {/* Value */}
-                <div className="text-3xl md:text-4xl font-bold text-gradient-gold mb-2">
-                  {stat.value}
-                </div>
-                
-                {/* Label */}
-                <div className={`text-sm md:text-base font-mono ${
-                  darkMode ? 'text-gray-400' : 'text-gray-600'
-                }`}>
-                  {stat.label}
-                </div>
+            <h3 className="text-xl md:text-2xl font-bold mb-6">
+              Skills
+            </h3>
 
-                {/* Subtle gold glow on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-              </motion.div>
-            ))}
+            <motion.div
+              className="flex flex-wrap gap-3"
+              variants={containerVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+            >
+              {skills.map((skill) => (
+                <motion.span
+                  key={skill}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`px-3 py-1.5 rounded font-mono text-sm font-medium bullet-item ${
+                    darkMode
+                      ? 'bg-neon-red/20 text-neon-red border border-neon-red/30 hover:bg-neon-red/30'
+                      : 'bg-red-100 text-red-700 border border-red-200 hover:bg-red-200'
+                  }`}
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

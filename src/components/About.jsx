@@ -89,29 +89,24 @@ const About = ({ darkMode }) => {
             <p className={`text-lg md:text-xl leading-relaxed mb-6 ${
               darkMode ? 'text-gray-300' : 'text-gray-700'
             }`}>
-              EECS graduate from UC Berkeley with hands-on experience building and orchestrating{' '}
-              <span className="text-neon-crimson font-semibold">AI agent systems</span>. Fluent in{' '}
-              <span className="text-neon-red font-semibold">LLM-augmented development workflows</span> using
-              Claude and OpenAI APIs, agents, and Python/TypeScript full-stack environments.
+              EECS graduate from UC Berkeley building and orchestrating{' '}
+              <span className="text-neon-crimson font-semibold">AI agent systems</span>, fluent in{' '}
+              <span className="text-neon-red font-semibold">LLM-augmented development</span> with Claude and
+              OpenAI APIs across Python/TypeScript full-stack environments.
             </p>
 
             <p className={`text-lg md:text-xl leading-relaxed mb-6 ${
               darkMode ? 'text-gray-300' : 'text-gray-700'
             }`}>
-              <span className="text-neon-red font-semibold">AI Agent Systems:</span> At{' '}
-              <span className="text-neon-crimson font-semibold">Qidds</span>, I design and ship{' '}
-              <span className="text-neon-crimson font-semibold">LangGraph multi-agent pipelines</span> in
-              production, own the{' '}
-              <span className="text-neon-red font-semibold">AWS deployment pipeline</span> end-to-end (ECS
-              Fargate, ECR, IAM/OIDC, SSM, CloudWatch, RDS), and build admin-gated approval workflows on top
-              of a{' '}
-              <span className="text-neon-crimson font-semibold">Spring Boot REST API</span>. At{' '}
-              <span className="text-neon-crimson font-semibold">PeerSweep</span>, I orchestrate up to 25
-              parallel agents to turn live market data into decision intelligence.
+              At <span className="text-neon-crimson font-semibold">Qidds</span>, I ship{' '}
+              <span className="text-neon-crimson font-semibold">LangGraph multi-agent pipelines</span> and
+              own the <span className="text-neon-red font-semibold">AWS deployment pipeline</span>{' '}
+              end-to-end. At <span className="text-neon-crimson font-semibold">PeerSweep</span>, I
+              orchestrate up to 25 parallel agents turning live market data into decision intelligence.
             </p>
 
             <p className="text-lg md:text-xl leading-relaxed mt-6 text-neon-red font-bold">
-              I'm particularly interested in AI agent, applied ML, and backend infrastructure engineering roles.
+              Interested in AI agent, applied ML, and backend infrastructure roles.
             </p>
           </motion.div>
 

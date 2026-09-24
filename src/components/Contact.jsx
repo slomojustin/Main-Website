@@ -40,13 +40,6 @@ const Contact = ({ darkMode }) => {
       icon: Mail,
       text: 'justinwilliams@berkeley.edu',
       color: 'from-neon-red to-neon-crimson'
-    },
-    {
-      icon: Mail,
-      text: 'SIC PARVIS MAGNA Newsletter',
-      color: 'from-orange-500 to-yellow-500',
-      isSubstack: true,
-      url: 'https://slomojustin.substack.com'
     }
   ]
 
@@ -93,7 +86,7 @@ const Contact = ({ darkMode }) => {
         <div className="max-w-4xl mx-auto">
           {/* Contact Info Cards */}
           <motion.div
-            className="grid md:grid-cols-2 gap-6 mb-12"
+            className="mb-12"
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -101,16 +94,13 @@ const Contact = ({ darkMode }) => {
             {contactInfo.map((info, index) => {
               const Icon = info.icon
               const isEmail = info.text.includes('@berkeley.edu')
-              const isSubstack = info.isSubstack
-              const isClickable = isEmail || isSubstack
-              const href = isSubstack ? info.url : isEmail ? `mailto:${info.text}` : null
-              
+              const isClickable = isEmail
+              const href = isEmail ? `mailto:${info.text}` : null
+
               return (
                 <motion.a
                   key={index}
                   href={href}
-                  target={isSubstack ? '_blank' : undefined}
-                  rel={isSubstack ? 'noopener noreferrer' : undefined}
                   className={`rounded-xl p-6 flex items-center gap-4 ${
                     darkMode ? 'glass-dark hover:bg-white/5' : 'bg-white shadow-lg border border-gray-200 hover:border-neon-red'
                   } ${isClickable ? 'cursor-pointer' : ''} transition-all`}

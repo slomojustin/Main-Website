@@ -16,10 +16,10 @@ const Experience = ({ darkMode }) => {
       location: 'Fremont, CA',
       period: 'May 2026 - Present',
       bullets: [
-        'Designed and implemented the Validation and Maintenance Agents in a four-agent LangGraph pipeline for a K-12 educational program discovery platform, building deterministic pipelines with field-shape translation, duplicate detection, and automated deadline rollover and drift detection.',
-        'Owned the AWS deployment pipeline for all four agents end-to-end: ECS Fargate task definitions, ECR image repos, IAM/OIDC deploy roles, SSM Parameter Store secrets, CloudWatch logging, and RDS/security-group access — taking services from local Docker to running production containers.',
-        'Diagnosed and fixed layered production failures spanning network, database, and application boundaries, then closed each bug class at its root instead of patching the instance.',
-        'Built an admin-gated publishing workflow routing validated records through multi-step approval to a Spring Boot REST API, and shipped an AI-generated cover-image feature (LLM image API + admin review UI with prompt preview and before/after comparison).'
+        'Built the Validation and Maintenance Agents in a 4-agent LangGraph pipeline for a K-12 program discovery platform, handling field-shape translation, duplicate detection, and deadline drift.',
+        'Owned the AWS deployment pipeline end-to-end — ECS Fargate, ECR, IAM/OIDC, SSM, CloudWatch, RDS — taking services from local Docker to production.',
+        'Diagnosed and fixed production failures across network, database, and application layers, closing each bug class at its root.',
+        'Shipped an admin-gated publishing workflow on a Spring Boot REST API, plus an AI-generated cover-image feature with a prompt-preview review UI.'
       ]
     },
     {
@@ -29,8 +29,8 @@ const Experience = ({ darkMode }) => {
       location: 'Antioch, CA',
       period: 'March 2026 - Present',
       bullets: [
-        "Selected for TinyFish's incubator program (Round 2), co-building with a veteran banking executive to engineer his vision for democratizing C-suite decision intelligence using AI agents and live regulatory data.",
-        'Orchestrated up to 25 parallel AI agents to scrape live deposit rates, news, and social signals across peer banks, compressing multi-day research into seconds, and built a multi-tab dashboard turning that data into actionable decision intelligence.'
+        "Selected for TinyFish's incubator (Round 2), building with a veteran banking exec to democratize C-suite decision intelligence with AI agents.",
+        'Orchestrated up to 25 parallel agents to scrape live deposit rates, news, and social signals across peer banks, feeding a dashboard that turns it into decision intelligence.'
       ]
     },
     {
@@ -40,7 +40,7 @@ const Experience = ({ darkMode }) => {
       location: 'Berkeley, CA',
       period: 'Aug 2023 - May 2025',
       bullets: [
-        "Taught and mentored each semester a group of students, simplifying complex circuit analysis concepts through explanations and reinforcing understanding by adapting teaching methods to each student's learning needs."
+        "Mentored students each semester, breaking down circuit analysis and adapting teaching methods to each student's learning style."
       ]
     }
   ]

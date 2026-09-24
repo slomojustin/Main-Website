@@ -8,12 +8,8 @@ const About = ({ darkMode }) => {
   })
 
   const skills = [
-    'Python', 'Java', 'Go', 'C++', 'Git', 'Cryptography', 'Networking',
-    'Spring Boot', 'Secure Systems Design', 'Multi-Agent Systems',
-    'LangGraph', 'Prompt Engineering', 'Natural Language Processing',
-    'React', 'Flask', 'Next.js', 'Model Context Protocol', 'PostgreSQL',
-    'AWS (ECS Fargate, ECR, IAM, SSM Parameter Store, CloudWatch, RDS)',
-    'FastAPI', 'Docker'
+    'Python', 'Java', 'LangGraph', 'Multi-Agent Systems', 'Prompt Engineering',
+    'Spring Boot', 'React', 'PostgreSQL', 'AWS', 'Docker'
   ]
 
   const containerVariants = {
@@ -112,19 +108,6 @@ const About = ({ darkMode }) => {
               <span className="text-neon-crimson font-semibold">Spring Boot REST API</span>. At{' '}
               <span className="text-neon-crimson font-semibold">PeerSweep</span>, I orchestrate up to 25
               parallel agents to turn live market data into decision intelligence.
-            </p>
-
-            <p className={`text-lg md:text-xl leading-relaxed ${
-              darkMode ? 'text-gray-300' : 'text-gray-700'
-            }`}>
-              <span className="text-neon-red font-semibold">Foundations:</span> That agent work sits on top
-              of a systems background—implementing{' '}
-              <span className="text-neon-crimson font-semibold">TCP protocols</span> and{' '}
-              <span className="text-neon-red font-semibold">encrypted file-sharing platforms</span>, and
-              designing{' '}
-              <span className="text-neon-crimson font-semibold">pipelined RISC-V CPUs on FPGAs</span>. I
-              work across Python, Go, Java, and C++, with production experience in networking, security,
-              and cloud infrastructure.
             </p>
 
             <p className="text-lg md:text-xl leading-relaxed mt-6 text-neon-red font-bold">
